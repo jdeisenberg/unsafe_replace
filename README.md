@@ -3,7 +3,7 @@
 Currently, Bucklescript’s `js_string.ml` defines several versions of `replace` when specifying a function as a parameter: `unsafeReplaceBy0`, `unsafeReplaceBy1`, `unsafeReplaceBy2`, and `unsafeReplaceBy3`, depending on the number of capture groups.
 
 However, if you have more than three capture groups, you are out of luck. This repository suggests a possible solution (which I am not clever enough to write as a pull request for BuckleScript). The idea is to specify the function passed
-to `unsafeReplace` with parameters:
+to a new function named `unsafeReplaceBy` with parameters:
 
 * the matched part
 * an array of strings containing the captured groups - thus allowing any number of capture groups in the regex
